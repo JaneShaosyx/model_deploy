@@ -50,10 +50,9 @@ def index():
         lin_reg = pickle.load(open(f"./models/month_{month}", 'rb'))
         cluster = lin_reg.predict(df).tolist()[0]
         return jsonify(cluster)
-        return jsonify({})
     else:
         return jsonify({"about": "Hello World"})
 
 
 if __name__ == '__main__':
-    app.run(port=8888, host='localhost', debug=True)
+    app.run(debug=True)
